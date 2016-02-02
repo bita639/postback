@@ -7,6 +7,7 @@
        http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd">
 
   <bean id="getCompleteCacheInstanceProcessor" class="nl.rubix.eos.postback.core.cache.camel.GetCompleteCacheInstanceProcessor"/>
+  <bean id="createSubscriptionProcessor" class="nl.rubix.eos.postback.core.api.CreateSubscriptionProcessor"/>
   <bean id="postbackRouteBuilder" class="nl.rubix.eos.postback.core.PostbackRouteBuilder"/>
   <bean id="subscriptionApiRouteBuilder" class="nl.rubix.eos.postback.core.api.SubscriptionApiRouteBuilder"/>
 
