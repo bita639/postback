@@ -57,7 +57,8 @@ public class CreateSubscriptionProcessorTest extends CamelTestSupport{
 	  public void createSubscriotionProcessorTestInvalid() throws Exception{
 	    Exchange testExchange = createExchangeWithBody("test");
 	    createSubscriptionProcessor.process(testExchange);
-	    assertTrue("WebApplicationException is thrown", testExchange.getException() instanceof javax.ws.rs.WebApplicationException);
+	    System.out.println(testExchange.getIn().getHeader(Exchange.HTTP_RESPONSE_CODE));
+	    assertEquals("Should be 400 bad request", testExchange.getIn().getHeader(Exchange.HTTP_RESPONSE_CODE),new Integer(400));
 	  }
 
 	}

@@ -1,11 +1,7 @@
 package nl.rubix.eos.postback.core.api;
 
-import java.net.HttpURLConnection;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-
-import javax.ws.rs.WebApplicationException;
-import javax.ws.rs.core.Response;
 
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
@@ -21,8 +17,8 @@ public class CreateSubscriptionProcessor implements Processor{
 	      exchange.getIn().setHeader("cache_value", callbackUrl);
 	      exchange.getIn().removeHeader("callbackurl");
 	    } else {
-	      exchange.setException(new WebApplicationException(Response.status(HttpURLConnection.HTTP_BAD_REQUEST)
-	        .entity("name parameter is mandatory").build()));
+	      exchange.getIn().setHeader(Exchange.CONTENT_TYPE, "text/plain");
+	      exchange.getIn().setHeader(Exchange.HTTP_RESPONSE_CODE, 400);;
 	    }
 	  }
 
