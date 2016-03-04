@@ -25,7 +25,7 @@ public class EvictedEventListener extends CacheEventListenerBaseImpl {
 		producer.sendBody(createExpiredNotification(element));
 	}
 
-	private List<String> createExpiredNotification(Element element) {
+	protected List<String> createExpiredNotification(Element element) {
 		List<String> expiredNotification = new ArrayList<String>();
 
 		expiredNotification.add(element.getObjectKey().toString());
