@@ -26,7 +26,7 @@ public class GetAllCacheInstancesProcessorTest extends CamelTestSupport{
 	public void insantiateEvictedEventListener() throws Exception{
 		this.evictedEventListener = new EvictedEventListener();
 		this.cm = CacheManager.getInstance();
-		cache = new Cache("UnitTestCache", 2, false, false, 100000L, 100000L);
+		this.cache = new Cache("UnitTestCache", 2, false, false, 100000L, 100000L);
 		cm.addCache(cache);
 		this.processor = new GetAllCacheInstancesProcessor();
 		populateUnitTestCache();
