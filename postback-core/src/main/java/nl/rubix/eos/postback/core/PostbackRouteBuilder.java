@@ -49,8 +49,6 @@ public class PostbackRouteBuilder extends RouteBuilder{
 	      .log("entry Deleted");
 	    
 	    
-	    //TODO change timer to JMS subscriber
-	    
 	    from("timer:foo?period=3000").routeId("distributeEventsToSubscribers")
 	      .onException(java.lang.Exception.class).maximumRedeliveries(3).redeliveryDelay(100).continued(true).end()
 	      .log("message received")
@@ -61,13 +59,6 @@ public class PostbackRouteBuilder extends RouteBuilder{
 	        .method(nl.rubix.eos.postback.core.cache.camel.EventDistributor.class, "getSubscribers")
 	        .executorServiceRef("eventDistributionThreadPool");
 	    
-	    //TODO add proper exception handling in the routes
-	    
-	    //TODO add unit tests
-	    
-	    //TODO add functionality so no duplicate entries can occur
-	    
-	    //TODO add functionality to have specific functional subscriptions (and multiple caches)
 	}
 
 }
