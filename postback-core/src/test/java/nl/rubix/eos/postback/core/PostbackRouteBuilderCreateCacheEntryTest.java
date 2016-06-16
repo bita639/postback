@@ -1,4 +1,4 @@
-package nl.rubix.eos.portback.core;
+package nl.rubix.eos.postback.core;
 
 import net.sf.ehcache.Cache;
 import net.sf.ehcache.CacheManager;
